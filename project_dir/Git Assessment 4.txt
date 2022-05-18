@@ -1,0 +1,222 @@
+
+karemoun@LIN65006349 MINGW64 ~
+$ git clone
+fatal: You must specify a repository to clone.
+
+usage: git clone [<options>] [--] <repo> [<dir>]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --progress            force progress reporting
+    --reject-shallow      don't clone shallow repository
+    -n, --no-checkout     don't create a checkout
+    --bare                create a bare repository
+    --mirror              create a mirror repository (implies bare)
+    -l, --local           to clone from a local repository
+    --no-hardlinks        don't use local hardlinks, always copy
+    -s, --shared          setup as shared repository
+    --recurse-submodules[=<pathspec>]
+                          initialize submodules in the clone
+    --recursive ...       alias of --recurse-submodules
+    -j, --jobs <n>        number of submodules cloned in parallel
+    --template <template-directory>
+                          directory from which templates will be used
+    --reference <repo>    reference repository
+    --reference-if-able <repo>
+                          reference repository
+    --dissociate          use --reference only while cloning
+    -o, --origin <name>   use <name> instead of 'origin' to track upstream
+    -b, --branch <branch>
+                          checkout <branch> instead of the remote's HEAD
+    -u, --upload-pack <path>
+                          path to git-upload-pack on the remote
+    --depth <depth>       create a shallow clone of that depth
+    --shallow-since <time>
+                          create a shallow clone since a specific time
+    --shallow-exclude <revision>
+                          deepen history of shallow clone, excluding rev
+    --single-branch       clone only one branch, HEAD or --branch
+    --no-tags             don't clone any tags, and make later fetches not to follow them
+    --shallow-submodules  any cloned submodules will be shallow
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+    -c, --config <key=value>
+                          set config inside the new repository
+    --server-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+    --filter <args>       object filtering
+    --also-filter-submodules
+                          apply partial clone filters to submodules
+    --remote-submodules   any cloned submodules will use their remote-tracking branch
+    --sparse              initialize sparse-checkout file to include only files at root
+
+
+karemoun@LIN65006349 MINGW64 ~
+$ cd desktop
+
+karemoun@LIN65006349 MINGW64 ~/desktop
+$ mkdir assignmentsjs
+
+karemoun@LIN65006349 MINGW64 ~/desktop
+$ cd assignmentsjs
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs
+$ git add Readme.txt
+fatal: not a git repository (or any of the parent directories): .git
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs
+$ touch Readme.txt
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs
+$ git add Readme.txt
+fatal: not a git repository (or any of the parent directories): .git
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs
+$ git init
+Initialized empty Git repository in C:/Users/karemoun/Desktop/assignmentsjs/.git/
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Readme.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git add Readme.txt
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ vi Readme.txt
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git commit -m "Readme file commited"
+[master (root-commit) f6fa12a] Readme file commited
+ Committer: Mounika <kareti.mounika@capgemini.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Readme.txt
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ touch js assignments
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=<remote>/<branch> master
+
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git branch js-assignments
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git switch 'js-assignments'
+Switched to branch 'js-assignments'
+M       Readme.txt
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (js-assignments)
+$ git checkout master Readme.txt
+Updated 1 path from 11c49a1
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (js-assignments)
+$ git status
+On branch js-assignments
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        assignments
+        js
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (js-assignments)
+$ touch file.txt
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (js-assignments)
+$ git add -A
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (js-assignments)
+$ git status
+On branch js-assignments
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   assignments
+        new file:   file.txt
+        new file:   js
+
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (js-assignments)
+$ git switch master
+Switched to branch 'master'
+A       assignments
+A       file.txt
+A       js
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ touch file.js
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git add -A
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   assignments
+        new file:   file.js
+        new file:   file.txt
+        new file:   js
+
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git stash
+Saved working directory and index state WIP on master: f6fa12a Readme file commited
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git switch master
+Already on 'master'
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git merge js-assignments
+Already up to date.
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$ git branch -d js-assignments
+Deleted branch js-assignments (was f6fa12a).
+
+karemoun@LIN65006349 MINGW64 ~/desktop/assignmentsjs (master)
+$
