@@ -1,0 +1,561 @@
+use population
+'switched to db population'
+db.createCollection("zipcodes")
+{ ok: 1 }
+mongoimport --db population --collection zipcodes --file zip.json
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+mongoimport --db population --collection zipcodes --file zip.json
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.zipcodes.find({
+$and: [
+{city:'ATLANTA'},
+{state:'GA'}
+]})
+db.zipcodes.aggregate(
+    [ { $match : { $and: [
+{city:'ATLANTA'},
+{state:'GA'}
+] } } ]
+)
+db.zipcodes.aggregate([
+{ $match :{city:"ATLANTA"}},
+    {"$group" : {_id:"$city"}},
+{$count: "city"}
+])
+db.zipcodes.aggregate([ { $match :{city:"ATLANTA"}},     
+{"$group" : {_id:"$city", count: {$sum: 1}}} ])
+db.zipcodes.aggregate([ { $match :{city:"ATLANTA"}},     
+{"$group" : {_id:"$city", totalPop: {$sum: "$pop"}}} ])
+show databases
+mongo         2.63 MiB
+population    8.00 KiB
+admin       332.00 KiB
+local         5.18 GiB
+db.zipcodes.find({})
+{ _id: '01001',
+  city: 'AGAWAM',
+  loc: [ -72.622739, 42.070206 ],
+  pop: 15338,
+  state: 'MA' }
+{ _id: '01002',
+  city: 'CUSHMAN',
+  loc: [ -72.51565, 42.377017 ],
+  pop: 36963,
+  state: 'MA' }
+{ _id: '01005',
+  city: 'BARRE',
+  loc: [ -72.108354, 42.409698 ],
+  pop: 4546,
+  state: 'MA' }
+{ _id: '01007',
+  city: 'BELCHERTOWN',
+  loc: [ -72.410953, 42.275103 ],
+  pop: 10579,
+  state: 'MA' }
+{ _id: '01008',
+  city: 'BLANDFORD',
+  loc: [ -72.936114, 42.182949 ],
+  pop: 1240,
+  state: 'MA' }
+{ _id: '01010',
+  city: 'BRIMFIELD',
+  loc: [ -72.188455, 42.116543 ],
+  pop: 3706,
+  state: 'MA' }
+{ _id: '01011',
+  city: 'CHESTER',
+  loc: [ -72.988761, 42.279421 ],
+  pop: 1688,
+  state: 'MA' }
+{ _id: '01012',
+  city: 'CHESTERFIELD',
+  loc: [ -72.833309, 42.38167 ],
+  pop: 177,
+  state: 'MA' }
+{ _id: '01013',
+  city: 'CHICOPEE',
+  loc: [ -72.607962, 42.162046 ],
+  pop: 23396,
+  state: 'MA' }
+{ _id: '01020',
+  city: 'CHICOPEE',
+  loc: [ -72.576142, 42.176443 ],
+  pop: 31495,
+  state: 'MA' }
+{ _id: '01022',
+  city: 'WESTOVER AFB',
+  loc: [ -72.558657, 42.196672 ],
+  pop: 1764,
+  state: 'MA' }
+{ _id: '01026',
+  city: 'CUMMINGTON',
+  loc: [ -72.905767, 42.435296 ],
+  pop: 1484,
+  state: 'MA' }
+{ _id: '01027',
+  city: 'MOUNT TOM',
+  loc: [ -72.679921, 42.264319 ],
+  pop: 16864,
+  state: 'MA' }
+{ _id: '01028',
+  city: 'EAST LONGMEADOW',
+  loc: [ -72.505565, 42.067203 ],
+  pop: 13367,
+  state: 'MA' }
+{ _id: '01030',
+  city: 'FEEDING HILLS',
+  loc: [ -72.675077, 42.07182 ],
+  pop: 11985,
+  state: 'MA' }
+{ _id: '01031',
+  city: 'GILBERTVILLE',
+  loc: [ -72.198585, 42.332194 ],
+  pop: 2385,
+  state: 'MA' }
+{ _id: '01032',
+  city: 'GOSHEN',
+  loc: [ -72.844092, 42.466234 ],
+  pop: 122,
+  state: 'MA' }
+{ _id: '01033',
+  city: 'GRANBY',
+  loc: [ -72.520001, 42.255704 ],
+  pop: 5526,
+  state: 'MA' }
+{ _id: '01034',
+  city: 'TOLLAND',
+  loc: [ -72.908793, 42.070234 ],
+  pop: 1652,
+  state: 'MA' }
+{ _id: '01035',
+  city: 'HADLEY',
+  loc: [ -72.571499, 42.36062 ],
+  pop: 4231,
+  state: 'MA' }
+Type "it" for more
+db.zipcodes.find({
+$and: [
+{city:'ATLANTA'},
+{state:'GA'}
+]})
+{ _id: '30303',
+  city: 'ATLANTA',
+  loc: [ -84.388846, 33.752504 ],
+  pop: 1845,
+  state: 'GA' }
+{ _id: '30305',
+  city: 'ATLANTA',
+  loc: [ -84.385145, 33.831963 ],
+  pop: 19122,
+  state: 'GA' }
+{ _id: '30306',
+  city: 'ATLANTA',
+  loc: [ -84.351418, 33.786027 ],
+  pop: 20081,
+  state: 'GA' }
+{ _id: '30307',
+  city: 'ATLANTA',
+  loc: [ -84.335957, 33.769138 ],
+  pop: 16330,
+  state: 'GA' }
+{ _id: '30308',
+  city: 'ATLANTA',
+  loc: [ -84.375744, 33.771839 ],
+  pop: 8549,
+  state: 'GA' }
+{ _id: '30309',
+  city: 'ATLANTA',
+  loc: [ -84.388338, 33.798407 ],
+  pop: 14766,
+  state: 'GA' }
+{ _id: '30310',
+  city: 'ATLANTA',
+  loc: [ -84.423173, 33.727849 ],
+  pop: 34017,
+  state: 'GA' }
+{ _id: '30311',
+  city: 'ATLANTA',
+  loc: [ -84.470219, 33.722957 ],
+  pop: 34880,
+  state: 'GA' }
+{ _id: '30312',
+  city: 'ATLANTA',
+  loc: [ -84.378125, 33.746749 ],
+  pop: 17683,
+  state: 'GA' }
+{ _id: '30313',
+  city: 'ATLANTA',
+  loc: [ -84.39352, 33.76825 ],
+  pop: 8038,
+  state: 'GA' }
+{ _id: '30314',
+  city: 'ATLANTA',
+  loc: [ -84.425546, 33.756103 ],
+  pop: 26649,
+  state: 'GA' }
+{ _id: '30315',
+  city: 'ATLANTA',
+  loc: [ -84.380771, 33.705062 ],
+  pop: 41061,
+  state: 'GA' }
+{ _id: '30316',
+  city: 'ATLANTA',
+  loc: [ -84.333913, 33.721686 ],
+  pop: 34668,
+  state: 'GA' }
+{ _id: '30317',
+  city: 'ATLANTA',
+  loc: [ -84.31685, 33.749788 ],
+  pop: 16395,
+  state: 'GA' }
+{ _id: '30318',
+  city: 'ATLANTA',
+  loc: [ -84.445432, 33.786454 ],
+  pop: 53894,
+  state: 'GA' }
+{ _id: '30319',
+  city: 'ATLANTA',
+  loc: [ -84.335091, 33.868728 ],
+  pop: 32138,
+  state: 'GA' }
+{ _id: '30324',
+  city: 'ATLANTA',
+  loc: [ -84.354867, 33.820609 ],
+  pop: 15044,
+  state: 'GA' }
+{ _id: '30326',
+  city: 'ATLANTA',
+  loc: [ -84.358232, 33.848168 ],
+  pop: 125,
+  state: 'GA' }
+{ _id: '30327',
+  city: 'ATLANTA',
+  loc: [ -84.419966, 33.862723 ],
+  pop: 18467,
+  state: 'GA' }
+{ _id: '30329',
+  city: 'ATLANTA',
+  loc: [ -84.321402, 33.823555 ],
+  pop: 17013,
+  state: 'GA' }
+Type "it" for more
+db.zipcodes.aggregate(
+    [ { $match : { $and: [
+{city:'ATLANTA'},
+{state:'GA'}
+] } } ]
+)
+{ _id: '30303',
+  city: 'ATLANTA',
+  loc: [ -84.388846, 33.752504 ],
+  pop: 1845,
+  state: 'GA' }
+{ _id: '30305',
+  city: 'ATLANTA',
+  loc: [ -84.385145, 33.831963 ],
+  pop: 19122,
+  state: 'GA' }
+{ _id: '30306',
+  city: 'ATLANTA',
+  loc: [ -84.351418, 33.786027 ],
+  pop: 20081,
+  state: 'GA' }
+{ _id: '30307',
+  city: 'ATLANTA',
+  loc: [ -84.335957, 33.769138 ],
+  pop: 16330,
+  state: 'GA' }
+{ _id: '30308',
+  city: 'ATLANTA',
+  loc: [ -84.375744, 33.771839 ],
+  pop: 8549,
+  state: 'GA' }
+{ _id: '30309',
+  city: 'ATLANTA',
+  loc: [ -84.388338, 33.798407 ],
+  pop: 14766,
+  state: 'GA' }
+{ _id: '30310',
+  city: 'ATLANTA',
+  loc: [ -84.423173, 33.727849 ],
+  pop: 34017,
+  state: 'GA' }
+{ _id: '30311',
+  city: 'ATLANTA',
+  loc: [ -84.470219, 33.722957 ],
+  pop: 34880,
+  state: 'GA' }
+{ _id: '30312',
+  city: 'ATLANTA',
+  loc: [ -84.378125, 33.746749 ],
+  pop: 17683,
+  state: 'GA' }
+{ _id: '30313',
+  city: 'ATLANTA',
+  loc: [ -84.39352, 33.76825 ],
+  pop: 8038,
+  state: 'GA' }
+{ _id: '30314',
+  city: 'ATLANTA',
+  loc: [ -84.425546, 33.756103 ],
+  pop: 26649,
+  state: 'GA' }
+{ _id: '30315',
+  city: 'ATLANTA',
+  loc: [ -84.380771, 33.705062 ],
+  pop: 41061,
+  state: 'GA' }
+{ _id: '30316',
+  city: 'ATLANTA',
+  loc: [ -84.333913, 33.721686 ],
+  pop: 34668,
+  state: 'GA' }
+{ _id: '30317',
+  city: 'ATLANTA',
+  loc: [ -84.31685, 33.749788 ],
+  pop: 16395,
+  state: 'GA' }
+{ _id: '30318',
+  city: 'ATLANTA',
+  loc: [ -84.445432, 33.786454 ],
+  pop: 53894,
+  state: 'GA' }
+{ _id: '30319',
+  city: 'ATLANTA',
+  loc: [ -84.335091, 33.868728 ],
+  pop: 32138,
+  state: 'GA' }
+{ _id: '30324',
+  city: 'ATLANTA',
+  loc: [ -84.354867, 33.820609 ],
+  pop: 15044,
+  state: 'GA' }
+{ _id: '30326',
+  city: 'ATLANTA',
+  loc: [ -84.358232, 33.848168 ],
+  pop: 125,
+  state: 'GA' }
+{ _id: '30327',
+  city: 'ATLANTA',
+  loc: [ -84.419966, 33.862723 ],
+  pop: 18467,
+  state: 'GA' }
+{ _id: '30329',
+  city: 'ATLANTA',
+  loc: [ -84.321402, 33.823555 ],
+  pop: 17013,
+  state: 'GA' }
+Type "it" for more
+db.zipcodes.aggregate([
+{ $match :{city:"ATLANTA"}},
+    {"$group" : {_id:"$city"}},
+{$count: "city"}
+])
+{ city: 1 }
+db.zipcodes.aggregate([ { $match :{city:"ATLANTA"}},     
+{"$group" : {_id:"$city", count: {$sum: 1}}} ])
+{ _id: 'ATLANTA', count: 41 }
+db.zipcodes.aggregate([ { $match :{city:"ATLANTA"}},     
+{"$group" : {_id:"$city", totalPop: {$sum: "$pop"}}} ])
+{ _id: 'ATLANTA', totalPop: 630046 }
+db.zipcodes.aggregate([ 
+{"$group" : {_id:"$state", totalPop: {$sum: "$pop"}}} 
+])
+{ _id: 'KS', totalPop: 2475285 }
+{ _id: 'AL', totalPop: 4040587 }
+{ _id: 'DE', totalPop: 666168 }
+{ _id: 'IN', totalPop: 5544136 }
+{ _id: 'HI', totalPop: 1108229 }
+{ _id: 'TN', totalPop: 4876457 }
+{ _id: 'MT', totalPop: 798948 }
+{ _id: 'MS', totalPop: 2573216 }
+{ _id: 'GA', totalPop: 6478216 }
+{ _id: 'IA', totalPop: 2776420 }
+{ _id: 'SD', totalPop: 695397 }
+{ _id: 'WA', totalPop: 4866692 }
+{ _id: 'NM', totalPop: 1515069 }
+{ _id: 'ND', totalPop: 638272 }
+{ _id: 'AR', totalPop: 2350725 }
+{ _id: 'FL', totalPop: 12686644 }
+{ _id: 'NC', totalPop: 6628637 }
+{ _id: 'LA', totalPop: 4217595 }
+{ _id: 'OK', totalPop: 3145585 }
+{ _id: 'AZ', totalPop: 3665228 }
+Type "it" for more
+db.zipcodes.aggregate([ 
+{"$group" : {_id:"$state", totalPop: {$sum: "$pop"}}},
+{$sort: {"_id.totalPop": -1}} 
+])
+{ _id: 'IN', totalPop: 5544136 }
+{ _id: 'IL', totalPop: 11427576 }
+{ _id: 'HI', totalPop: 1108229 }
+{ _id: 'UT', totalPop: 1722850 }
+{ _id: 'WI', totalPop: 4891769 }
+{ _id: 'DC', totalPop: 606900 }
+{ _id: 'KY', totalPop: 3675484 }
+{ _id: 'RI', totalPop: 1003218 }
+{ _id: 'CO', totalPop: 3293755 }
+{ _id: 'OH', totalPop: 10846517 }
+{ _id: 'SC', totalPop: 3486703 }
+{ _id: 'MI', totalPop: 9295297 }
+{ _id: 'VA', totalPop: 6181479 }
+{ _id: 'WY', totalPop: 453528 }
+{ _id: 'NE', totalPop: 1578139 }
+{ _id: 'MO', totalPop: 5110648 }
+{ _id: 'WV', totalPop: 1793146 }
+{ _id: 'NY', totalPop: 17990402 }
+{ _id: 'TX', totalPop: 16984601 }
+{ _id: 'CT', totalPop: 3287116 }
+Type "it" for more
+db.zipcodes.aggregate([ 
+{$limit: 3},
+{"$group" : {_id:"$state", totalPop: {$sum: "$pop"}}},
+{$sort: {"_id.totalPop": -1}} 
+])
+{ _id: 'MA', totalPop: 56847 }
+db.zipcodes.aggregate([ 
+{"$group" : {_id:{city: "$city",state: "$state"}, totalPop: {$sum: "$pop"}}} 
+])
+{ _id: { city: 'CLEARWATER', state: 'ID' }, totalPop: 2704 }
+{ _id: { city: 'FOWLER', state: 'CA' }, totalPop: 5290 }
+{ _id: { city: 'VALLEY FORD', state: 'CA' }, totalPop: 114 }
+{ _id: { city: 'SAVOONGA', state: 'AK' }, totalPop: 519 }
+{ _id: { city: 'SPENCER', state: 'NY' }, totalPop: 3829 }
+{ _id: { city: 'STRATTON', state: 'NE' }, totalPop: 776 }
+{ _id: { city: 'GARCIASVILLE', state: 'TX' }, totalPop: 5741 }
+{ _id: { city: 'EL CAJON', state: 'CA' }, totalPop: 142374 }
+{ _id: { city: 'ULEN', state: 'MN' }, totalPop: 939 }
+{ _id: { city: 'DAISY', state: 'OK' }, totalPop: 147 }
+{ _id: { city: 'BOYDEN', state: 'IA' }, totalPop: 1652 }
+{ _id: { city: 'PLYMOUTH', state: 'NH' }, totalPop: 8980 }
+{ _id: { city: 'FLY CREEK', state: 'NY' }, totalPop: 1033 }
+{ _id: { city: 'EUNICE', state: 'MO' }, totalPop: 215 }
+{ _id: { city: 'BELLAIRE', state: 'TX' }, totalPop: 13913 }
+{ _id: { city: 'POE', state: 'WV' }, totalPop: 818 }
+{ _id: { city: 'WOODLAND', state: 'AL' }, totalPop: 2291 }
+{ _id: { city: 'CHICO', state: 'TX' }, totalPop: 2657 }
+{ _id: { city: 'BLADENBORO', state: 'NC' }, totalPop: 7957 }
+{ _id: { city: 'CURRITUCK', state: 'NC' }, totalPop: 498 }
+Type "it" for more
+db.zipcodes.aggregate([ 
+{"$group" : {_id:{city: "$city",state: "$state"}, totalPop: {$sum: "$pop"}}},
+{$sort: {"_id.totalPop": -1}}
+])
+{ _id: { city: 'BECCARIA', state: 'PA' }, totalPop: 1571 }
+{ _id: { city: 'MOUNTAIN BROOK', state: 'AL' },
+  totalPop: 11117 }
+{ _id: { city: 'TERRE HILL', state: 'PA' }, totalPop: 1282 }
+{ _id: { city: 'MCDONALD', state: 'NC' }, totalPop: 10978 }
+{ _id: { city: 'ROCKFORD', state: 'IA' }, totalPop: 1258 }
+{ _id: { city: 'BROWNS SUMMIT', state: 'NC' }, totalPop: 5688 }
+{ _id: { city: 'HONESDALE', state: 'PA' }, totalPop: 12655 }
+{ _id: { city: 'GULFPORT', state: 'MS' }, totalPop: 70868 }
+{ _id: { city: 'MADISON', state: 'IN' }, totalPop: 20596 }
+{ _id: { city: 'CRIDERSVILLE', state: 'OH' }, totalPop: 12250 }
+{ _id: { city: 'FRANKFORT', state: 'MI' }, totalPop: 3168 }
+{ _id: { city: 'CAMBRIDGE', state: 'WI' }, totalPop: 4102 }
+{ _id: { city: 'BUENA VISTA', state: 'TN' }, totalPop: 165 }
+{ _id: { city: 'KEITH', state: 'KY' }, totalPop: 185 }
+{ _id: { city: 'HANSON', state: 'MA' }, totalPop: 9037 }
+{ _id: { city: 'QUANTICO', state: 'MD' }, totalPop: 1029 }
+{ _id: { city: 'OGDENSBURG', state: 'NJ' }, totalPop: 2722 }
+{ _id: { city: 'WAUBUN', state: 'MN' }, totalPop: 961 }
+{ _id: { city: 'CULBERTSON', state: 'MT' }, totalPop: 949 }
+{ _id: { city: 'FOREST PARK', state: 'IL' }, totalPop: 14882 }
+Type "it" for more
+db.zipcodes.aggregate([ 
+{$limit: 3},
+{"$group" : {_id:{city: "$city",state: "$state"}, totalPop: {$sum: "$pop"}}},
+{$sort: {"_id.totalPop": -1}}
+])
+{ _id: { city: 'BARRE', state: 'MA' }, totalPop: 4546 }
+{ _id: { city: 'AGAWAM', state: 'MA' }, totalPop: 15338 }
+{ _id: { city: 'CUSHMAN', state: 'MA' }, totalPop: 36963 }
+db.zipcodes.aggregate([ 
+{$limit: 3},
+{ $match :{city:"Texas"}},
+{"$group" : {_id:{city: "$city",state: "$state"}, totalPop: {$sum: "$pop"}}},
+{$sort: {"_id.totalPop": -1}}
+])
+db.zipcodes.aggregate([ 
+{"$group" : {_id:"$state", avgPop: {$avg: "$pop"}}} 
+])
+{ _id: 'RI', avgPop: 14539.391304347826 }
+{ _id: 'MT', avgPop: 2544.420382165605 }
+{ _id: 'KY', avgPop: 4543.243510506799 }
+{ _id: 'DC', avgPop: 25287.5 }
+{ _id: 'MI', avgPop: 10611.069634703197 }
+{ _id: 'SC', avgPop: 9962.00857142857 }
+{ _id: 'OH', avgPop: 10771.119165839125 }
+{ _id: 'CO', avgPop: 7955.929951690821 }
+{ _id: 'IL', avgPop: 9238.137429264349 }
+{ _id: 'WI', avgPop: 6832.079608938548 }
+{ _id: 'UT', avgPop: 8404.146341463415 }
+{ _id: 'CT', avgPop: 12498.539923954373 }
+{ _id: 'NY', avgPop: 11279.248902821317 }
+{ _id: 'CA', avgPop: 19627.236147757256 }
+{ _id: 'ME', avgPop: 2991.8243902439026 }
+{ _id: 'NJ', avgPop: 14315.162962962962 }
+{ _id: 'MA', avgPop: 12692.879746835442 }
+{ _id: 'MD', avgPop: 11384.235714285714 }
+{ _id: 'WY', avgPop: 3239.4857142857145 }
+{ _id: 'VA', avgPop: 7575.341911764706 }
+Type "it" for more
+db.zipcodes.aggregate([ 
+{"$group" : {_id:"$state", avgPop: {$avg: "$pop"}}} 
+])
+{ _id: 'NC', avgPop: 9402.321985815603 }
+{ _id: 'MO', avgPop: 5141.496981891348 }
+{ _id: 'WV', avgPop: 2733.454268292683 }
+{ _id: 'NE', avgPop: 2749.3710801393727 }
+{ _id: 'VA', avgPop: 7575.341911764706 }
+{ _id: 'LA', avgPop: 9089.644396551725 }
+{ _id: 'TX', avgPop: 10164.333333333334 }
+{ _id: 'WY', avgPop: 3239.4857142857145 }
+{ _id: 'NV', avgPop: 11556.086538461539 }
+{ _id: 'MA', avgPop: 12692.879746835442 }
+{ _id: 'MD', avgPop: 11384.235714285714 }
+{ _id: 'ME', avgPop: 2991.8243902439026 }
+{ _id: 'NJ', avgPop: 14315.162962962962 }
+{ _id: 'NY', avgPop: 11279.248902821317 }
+{ _id: 'CT', avgPop: 12498.539923954373 }
+{ _id: 'ID', avgPop: 4126.020491803279 }
+{ _id: 'CA', avgPop: 19627.236147757256 }
+{ _id: 'UT', avgPop: 8404.146341463415 }
+{ _id: 'WI', avgPop: 6832.079608938548 }
+{ _id: 'OR', avgPop: 7401.877604166667 }
+Type "it" for more
+db.zipcodes.aggregate([ 
+{$limit: 3},
+{"$group" : {_id:"$state", avgPop: {$avg: "$pop"}}},
+{$sort: {"_id.avgPop": -1}}
+]
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.zipcodes.aggregate([{"$group":{_id:"$state",avgPop:{$avg:"$pop"}}}])
+{ _id: 'DE', avgPop: 12569.207547169812 }
+{ _id: 'IN', avgPop: 8201.384615384615 }
+{ _id: 'IL', avgPop: 9238.137429264349 }
+{ _id: 'UT', avgPop: 8404.146341463415 }
+{ _id: 'WI', avgPop: 6832.079608938548 }
+{ _id: 'DC', avgPop: 25287.5 }
+{ _id: 'KY', avgPop: 4543.243510506799 }
+{ _id: 'RI', avgPop: 14539.391304347826 }
+{ _id: 'OH', avgPop: 10771.119165839125 }
+{ _id: 'CO', avgPop: 7955.929951690821 }
+{ _id: 'MI', avgPop: 10611.069634703197 }
+{ _id: 'SC', avgPop: 9962.00857142857 }
+{ _id: 'VA', avgPop: 7575.341911764706 }
+{ _id: 'WY', avgPop: 3239.4857142857145 }
+{ _id: 'MO', avgPop: 5141.496981891348 }
+{ _id: 'NE', avgPop: 2749.3710801393727 }
+{ _id: 'WV', avgPop: 2733.454268292683 }
+{ _id: 'TX', avgPop: 10164.333333333334 }
+{ _id: 'NY', avgPop: 11279.248902821317 }
+{ _id: 'CT', avgPop: 12498.539923954373 }
+Type "it" for more
+db.zipcodes.aggregate([{$limit:3}]),{"$group":{_id:"$state",avgPop:{$avg:"$pop"}}},{$sort:{"_id.avgPop":-1}}]
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.zipcodes.aggregate([{$group:{_id:"$state"}},{$sort:{pop:-1}},{$limit:3}])
+{ _id: 'MA' }
+{ _id: 'MD' }
+{ _id: 'ME' }

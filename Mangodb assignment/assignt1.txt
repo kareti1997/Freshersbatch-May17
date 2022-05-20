@@ -1,0 +1,93 @@
+use mongo
+'switched to db mongo'
+db.movies.deleteOne({title:"Avatar"})
+{ acknowledged: true, deletedCount: 1 }
+db.movies.deleteOne({title:"Pee Wee Herman's Big Adventur"})
+{ acknowledged: true, deletedCount: 0 }
+db.users.insertMany([{username:"GoodGuyGreg",first_name:"GoodGuy",last_name:"Gerg"},{username:"ScumbagSteve",full_name:["first:Scumbag","last:steve"]}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("62873678793211042d39feeb"),
+     '1': ObjectId("62873678793211042d39feec") } }
+db.users.find()
+{ _id: ObjectId("628734aa1dea25e0004e66db"),
+  username: 'GoodGuyGreg',
+  first_name: 'GoodGuy',
+  last_name: 'Gerg' }
+{ _id: ObjectId("628734aa1dea25e0004e66dc"),
+  username: 'ScumbagSteve',
+  full_name: [ 'first:Scumbag', 'last:steve' ] }
+{ _id: ObjectId("62873678793211042d39feeb"),
+  username: 'GoodGuyGreg',
+  first_name: 'GoodGuy',
+  last_name: 'Gerg' }
+{ _id: ObjectId("62873678793211042d39feec"),
+  username: 'ScumbagSteve',
+  full_name: [ 'first:Scumbag', 'last:steve' ] }
+db.posts.insertMany([{username:"GoodGuyGreg",title:"Passes out at party",body:"Wakes up early and cleans house"},{username:"GoodGuyGreg",title:"Reports a bug in your code",body:"Sends you a pull request"},{username:"ScumbagSteve",title:"Borrows something",body:"Sells it"},{username:"ScumbagSteve",title"Borrows everything",body:"The end"},{username:"ScumbagSteve",title:"Forks your repo on Github",body:"Sets to private"}])
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.posts.insertMany([{username:"GoodGuyGreg",title:"Passes out at party",body:"Wakes up early and cleans house"},{username:"GoodGuyGreg",title:"Reports a bug in your code",body:"Sends you a pull request"},{username:"ScumbagSteve",title:"Borrows something",body:"Sells it"},{username:"ScumbagSteve",title"Borrows everything",body:"The end"},{username:"ScumbagSteve",title:"Forks your repo on Github",body:"Sets to private"}])
+db.posts.find()
+db.posts.find({$username:{$search:"GoodGuyGerg"}})
+db.posts.find({$username:{$search:"ScumbagSteve"}})
+db.posts.find({"username":"ScumbagSteve"}).pretty()
+db.comments.find()
+db.comments.find().pretty()
+db.comments.find({"username":"GoodGuyGreg"}).pretty()
+db.comments.find({"username":"ScumbagSteve"}).pretty()
+db.posts.insertMany([
+{
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.posts.insertMany([{username:"GoodGuyGreg",title:"Passes out at party",body:"Wakes up early and cleans house"},{username:"GoodGuyGreg",title:"Reports a bug in your code",body:"Sends you a pull request"},{username:"ScumbagSteve",title:"Borrows something",body:"Sells it"},{username:"ScumbagSteve",title"Borrows everything",body:"The end"},{username:"ScumbagSteve",title:"Forks your repo on Github",body:"Sets to private"}])
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.posts.insertMany([{username:"GoodGuyGreg",title:"Passes out at party",body:"Wakes up early and cleans house"},{username:"GoodGuyGreg",title:"Reports a bug in your code",body:"Sends you a pull request"},{username:"ScumbagSteve",title:"Borrows something",body:"Sells it"},{username:"ScumbagSteve",title"Borrows everything",body:"The end"},{username:"ScumbagSteve",title:"Forks your repo on Github",body:"Sets to private"}])
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.insertMany([{username:"GoodGuyGreg",title:"passess out at part",body:"wakes up early and cleans house"},{username:"GoodGuyGreg",title:"Reports a bug in your code",body:"sells it"},{username:"ScumbagSteve",title:"Forks your Repo on Github",body:"sets to private"}])
+TypeError: db.insertMany is not a function
+db.posts.insertMany([{username:"GoodGuyGreg",title:"Reports a bug in your code",body:"Sends you a pull request"},{username:"ScumbagSteve",title:"Forks your repo on Github",body:"Sets to private"}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("62873c0c793211042d39feed"),
+     '1': ObjectId("62873c0c793211042d39feee") } }
+db.posts.find()
+{ _id: ObjectId("62873c0c793211042d39feed"),
+  username: 'GoodGuyGreg',
+  title: 'Reports a bug in your code',
+  body: 'Sends you a pull request' }
+{ _id: ObjectId("62873c0c793211042d39feee"),
+  username: 'ScumbagSteve',
+  title: 'Forks your repo on Github',
+  body: 'Sets to private' }
+db.posts.find({$username:{$search:"GoodGuyGerg"}})
+MongoServerError: unknown top level operator: $username. If you have a field name that starts with a '$' symbol, consider using $getField or $setField.
+db.posts.find({$username:{$search:"GoodGuyGerg"}})
+MongoServerError: unknown top level operator: $username. If you have a field name that starts with a '$' symbol, consider using $getField or $setField.
+db.posts.find({username:{$search:"GoodGuyGerg"}})
+MongoServerError: unknown operator: $search
+db.posts.find({})
+{ _id: ObjectId("62873c0c793211042d39feed"),
+  username: 'GoodGuyGreg',
+  title: 'Reports a bug in your code',
+  body: 'Sends you a pull request' }
+{ _id: ObjectId("62873c0c793211042d39feee"),
+  username: 'ScumbagSteve',
+  title: 'Forks your repo on Github',
+  body: 'Sets to private' }
+db.posts.aggregate([
+{
+$match: { title: 'Reports a bug in your code' }
+},
+{
+$lookup: {
+from: 'comments',
+localField: '_id',
+foreignField: 'post',
+as: 'comments'
+}
+}
+]).pretty();
+{ _id: ObjectId("62873c0c793211042d39feed"),
+  username: 'GoodGuyGreg',
+  title: 'Reports a bug in your code',
+  body: 'Sends you a pull request',
+  comments: [] }
